@@ -70,16 +70,6 @@
   signOff = true
 [gpg]
   format = ssh
-[gpg "ssh"]
-{{ if eq .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-  program = "/mnt/c/Users/cayce/AppData/Local/1Password/app/8/op-ssh-sign.exe"
-{{   else }}
-  program = "/opt/1Password/op-ssh-sign"
-{{   end -}}
-{{ else }}
-  program = "C:/Users/cayce/AppData/Local/1Password/app/8/op-ssh-sign.exe"
-{{ end -}}
 [init]
   defaultBranch = main
 [log]
@@ -114,10 +104,8 @@
   pushInsteadOf = https://github.com/
 [user]
   # Email used in commit messages.
-  email = cayce@caycehouse.com
+  email = ruhigwolf@gmail.com
   # Name used in commit messages.
-  name = Cayce House
+  name = RuhigWolf
   # Signing Key.
-  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIA1fE9oGJZyOliB/NeqUaz+QeYrwam+gcb+ZLrFRNp/l
-[includeIf "gitdir:{{ .chezmoi.homeDir }}/src/work/"]
-  path = {{ .chezmoi.homeDir }}/.gitconfig_work
+  signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBdWB4lvELRZlms+iwgkDOctBXcafdRmZ1bsszmjXB7X

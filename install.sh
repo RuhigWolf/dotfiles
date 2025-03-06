@@ -16,10 +16,10 @@ command -v chezmoi >/dev/null 2>&1 || \
 
 if [ -d "$HOME/.local/share/chezmoi/.git" ]; then
   echo "🚸  chezmoi already initialized"
-  echo "    Reinitialize with: 'chezmoi init git@github.com:caycehouse/dotfiles.git'"
+  echo "    Reinitialize with: 'chezmoi init git@github.com:ruhigwolf/dotfiles.git'"
 else
   echo "🚀  Initialize dotfiles with:"
-  echo "    chezmoi init git@github.com:caycehouse/dotfiles.git"
+  echo "    chezmoi init git@github.com:ruhigwolf/dotfiles.git"
 fi
 
 echo ""

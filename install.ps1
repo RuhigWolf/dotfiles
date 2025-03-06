@@ -17,10 +17,10 @@ if (!(Get-Command -Name chezmoi)) {
 $chezmoiDir = "$HOME\.local\share\chezmoi\.git"
 if (Test-Path $chezmoiDir) {
   Write-Host "🚸  chezmoi already initialized"
-  Write-Host "    Reinitialize with: 'chezmoi init git@github.com:caycehouse/dotfiles.git'"
+  Write-Host "    Reinitialize with: 'chezmoi init git@github.com:ruhigwolf/dotfiles.git'"
 } else {
   Write-Host "🚀  Initialize dotfiles with:"
-  Write-Host "    chezmoi init git@github.com:caycehouse/dotfiles.git"
+  Write-Host "    chezmoi init git@github.com:ruhigwolf/dotfiles.git"
 }
 
 Write-Host ""

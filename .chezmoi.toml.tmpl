@@ -3,26 +3,5 @@
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
 
-{{- $gnome := false -}}
-{{- $kde := false -}}
-{{- $kubernetes := false -}}
-{{- if ne .chezmoi.os "windows" -}}
-{{-   $gnome = promptBoolOnce . "gnome" "Will GNOME be used on this machine" false -}}
-{{-   $kde = promptBoolOnce . "kde" "Will KDE be used on this machine" false -}}
-{{-   $kubernetes = promptBoolOnce . "kubernetes" "Will this machine be used for kubernetes" false -}}
-{{- end -}}
-
 [data]
   osid = {{ $osid | quote }}
-  gnome = {{ $gnome }}
-  kde = {{ $kde }}
-
-[data.integration.kubernetes]
-  enabled = {{ $kubernetes }}
-
-{{ if eq .chezmoi.os "linux" -}}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
-[onepassword]
-  command = "/mnt/c/Users/cayce/AppData/Local/Microsoft/WinGet/Packages/AgileBits.1Password.CLI_Microsoft.Winget.Source_8wekyb3d8bbwe/op.exe"
-{{   end -}}
-{{ end -}}

@@ -1,74 +1,37 @@
 {{ if eq .osid "linux-fedora" -}}
 
 {{ $repos := list
-  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/1password.repo"
-  "https://download.docker.com/linux/fedora/docker-ce.repo"
-  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/google-chrome.repo"
-  "https://downloads.k8slens.dev/rpm/lens.repo"
-  "https://raw.githubusercontent.com/caycehouse/dotfiles/main/.repos/vscode.repo" -}}
-{{ $copr := list -}}
+  "https://raw.githubusercontent.com/ruhigwolf/dotfiles/main/.repos/google-chrome.repo"
+  "https://raw.githubusercontent.com/ruhigwolf/dotfiles/main/.repos/vscode.repo" -}}
+{{ $copr := list
+  "kylegospo/wallpaper-engine-kde-plugin"
+  "lizardbyte/stable" -}}
 {{ $packages := list
-  "1password-cli"
-  "1password"
   "akmod-nvidia"
   "code"
-  "containerd.io"
-  "docker-buildx-plugin"
-  "docker-ce-cli"
-  "docker-ce"
-  "docker-compose-plugin"
   "fastfetch"
-  "fedora-workstation-repositories"
   "fish"
   "gh"
   "google-chrome-stable"
-  "helm"
   "htop"
-  "https://dbeaver.io/files/dbeaver-ce-latest-stable.x86_64.rpm"
   "https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm"
-  "https://github.com/xpipe-io/xpipe/releases/latest/download/xpipe-installer-linux-x86_64.rpm"
   "info"
-  "lens"
   "libva-nvidia-driver.{i686,x86_64}"
   "lutris"
   "mangohud"
   "prettyping"
   "shellcheck"
   "steam"
+  "Sunshine"
   "tealdeer"
   "telnet"
   "vim"
-  "virt-manager"
+  "wallpaper-engine-kde-plugin"
   "xorg-x11-drv-nvidia-cuda" -}}
 {{ $flatpaks := list
   "com.discordapp.Discord"
-  "com.github.tchx84.Flatseal"
-  "com.mattjakeman.ExtensionManager"
-  "com.parsecgaming.parsec"
-  "io.github.shiftey.Desktop"
-  "org.gnome.Extensions"
-  "org.mozilla.Thunderbird"
-  "us.zoom.Zoom" -}}
-
-{{ if .gnome -}}
-{{   $packages = concat $packages (list
-      "gnome-shell-extension-appindicator"
-      "gnome-shell-extension-blur-my-shell"
-      "gnome-shell-extension-caffeine"
-      "gnome-shell-extension-dash-to-dock"
-      "gnome-shell-extension-drive-menu"
-      "gnome-tweaks") -}}
-{{ end -}}
-
-{{ if .kde -}}
-{{   $copr = mustAppend $copr "kylegospo/wallpaper-engine-kde-plugin" -}}
-{{   $packages = mustAppend $packages "wallpaper-engine-kde-plugin" -}}
-{{ end -}}
-
-{{ if eq .chezmoi.hostname "kc-workstation" -}}
-{{   $copr = mustAppend $copr "lizardbyte/stable" -}}
-{{   $packages = mustAppend $packages "Sunshine" -}}
-{{ end -}}
+  "com.bitwarden.desktop"
+  "com.github.tchx84.Flatseal" -}}
 
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
@@ -100,8 +63,6 @@ flatpak install -y {{ $flatpaks | join " " }}
 
 {{ $sudo }}chsh -s "$(which fish)" "$(whoami)"
 
-{{ if eq .chezmoi.hostname "kc-workstation" }}
 systemctl --user enable --now sunshine
-{{ end }}
 
 {{ end -}}

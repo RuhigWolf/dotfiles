@@ -1,4 +1,4 @@
-{{- if lookPath "atuin" -}}
+{# {{- if lookPath "atuin" -}}
 #!{{ lookPath "bash" }}
 
 set -eufo pipefail
@@ -10,4 +10,4 @@ else
   echo "Failed to login to atuin."
 fi
 
-{{ end -}}
+{{ end -}} #}

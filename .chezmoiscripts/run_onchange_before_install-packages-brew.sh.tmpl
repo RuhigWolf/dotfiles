@@ -7,16 +7,12 @@ export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_NO_ENV_HINTS=1
 
 {{ $brews := list
-  "age"
   "atuin"
   "bat"
   "cloudflared"
-  "direnv"
-  "go-task/tap/go-task"
   "jq"
   "lsd"
   "moreutils"
-  "sops"
   "starship"
   "topgrade"
   "viddy"
@@ -25,10 +21,6 @@ export HOMEBREW_NO_ENV_HINTS=1
   "zoxide" -}}
 {{ $casks := list
   "font-fira-code-nerd-font" -}}
-
-{{ if .integration.kubernetes.enabled -}}
-{{   $brews = concat $brews (list  "fluxcd/tap/flux" "helm" "helmfile" "k9s" "kubeconform" "kubernetes-cli" "kustomize" "siderolabs/tap/talosctl" "stern" "talhelper")}}
-{{ end -}}
 
 brew bundle --no-lock --file=/dev/stdin <<EOF
 {{ range ($brews | sortAlpha | uniq) -}}
