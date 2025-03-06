@@ -9,6 +9,7 @@
 {{ $packages := list
   "akmod-nvidia"
   "code"
+  "https://github.com/deskflow/deskflow/releases/download/continuous/deskflow-continuous-linux-x86_64.flatpak"
   "fastfetch"
   "fish"
   "gh"
@@ -27,11 +28,25 @@
   "telnet"
   "vim"
   "wallpaper-engine-kde-plugin"
+  "wine"
   "xorg-x11-drv-nvidia-cuda" -}}
 {{ $flatpaks := list
-  "com.discordapp.Discord"
+  "org.blender.Blender"
   "com.bitwarden.desktop"
-  "com.github.tchx84.Flatseal" -}}
+  "com.discordapp.Discord"
+  "com.github.tchx84.Flatseal"
+  "com.heroicgameslauncher.hgl"
+  "io.github.MakovWait.Godots"
+  "org.onlyoffice.desktopeditors"
+  "org.freecad.FreeCAD"
+  "com.surfshark.Surfshark"
+  "com.obsproject.Studio"
+  "community.pathofbuilding. PathOfBuilding"
+  "com.vysp3r.ProtonPlus"
+  "org.inkscape.Inkscape"
+  "io.github.pwr_solaar.solaar"
+   
+   -}}
 
 {{ $sudo := "sudo " -}}
 {{ if eq .chezmoi.username "root" -}}
