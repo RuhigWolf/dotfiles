@@ -35,7 +35,6 @@ $Packages = @(
     "WinDirStat.WinDirStat"
     "WiresharkFoundation.Wireshark"
     "Surfshark.Surfshark"
-    "Balena.Etcher"
     "Community.PathofBuildingCommunity"
     "Inkscape.Inkscape"
     "GIMP.GIMP"
