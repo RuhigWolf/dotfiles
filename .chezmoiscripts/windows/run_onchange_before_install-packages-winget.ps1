@@ -33,8 +33,23 @@ $Packages = @(
     "Ubisoft.Connect"
     "Valve.Steam"
     "WinDirStat.WinDirStat"
-    "WinSCP.WinSCP"
     "WiresharkFoundation.Wireshark"
+    "Surfshark.Surfshark"
+    "Balena.Etcher"
+    "Community.PathofBuildingCommunity"
+    "Inkscape.Inkscape"
+    "GIMP.GIMP"
+    "Bitsum.ProcessLasso"
+    "Flydigi.FlydigiSpaceStation"
+    "LizardByte.Sunshine"
+    "Deskflow.Deskflow"
+    "WinDirStat.WinDirStat"
+    "StartIsBack.StartAllBack"
+    "CharlesMilette.TranslucentTB"
+    "MartiCliment.UniGetUI"
+    "Tailscale.Tailscale"
+    "FxSound.FxSound"
+    
 )
 
 $Base = @{
